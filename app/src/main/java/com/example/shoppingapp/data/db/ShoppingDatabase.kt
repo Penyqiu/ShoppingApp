@@ -1,15 +1,17 @@
-package com.example.shoppingapp.data
+package com.example.shoppingapp.data.db
 
 import android.content.Context
+import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.shoppingapp.data.entities.ShoppingItem
+import com.example.shoppingapp.data.db.entities.ShoppingItem
 
 @Database(
     entities = [ShoppingItem::class],
     version = 1
 )
+@Dao
 abstract class ShoppingDatabase: RoomDatabase() {
 
     abstract fun getShoppingDao(): ShoppingDao
