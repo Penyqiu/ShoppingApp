@@ -1,7 +1,7 @@
 package com.example.shoppingapp.ui
 
 import androidx.lifecycle.ViewModel
-import com.example.shoppingapp.data.entities.ShoppingItem
+import com.example.shoppingapp.data.db.entities.ShoppingItem
 import com.example.shoppingapp.data.repositories.ShoppingRepository
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
