@@ -1,8 +1,13 @@
 package com.example.shoppingapp.ui
 
+import android.app.Notification
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -41,16 +46,27 @@ class ShoppingActivity : AppCompatActivity(), KodeinAware {
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+
+
         navView.setNavigationItemSelectedListener {
             when(it.itemId)
             {
-                R.id.Glowna->Toast.makeText(applicationContext,"Powrot do glowenej",Toast.LENGTH_SHORT).show()
-                R.id.Mapy->Toast.makeText(applicationContext,"Mapy",Toast.LENGTH_SHORT).show()
+
+                R.id.Glowna->startActivity(Intent(this@ShoppingActivity,ShoppingActivity::class.java))
+
+                R.id.Mapy->startActivity(Intent(this@ShoppingActivity,MapsActivity::class.java))
+
+                R.id.Gallery->startActivity(Intent(this@ShoppingActivity,GalleryActivity::class.java))
+
+                R.id.Player->startActivity(Intent(this@ShoppingActivity,MediaPlayer::class.java))
+
+
             }
             true
         }
 
         viewModel.getAllShoppingItems().observe(this, Observer {
+
             adapter.items = it
             adapter.notifyDataSetChanged()
         })
@@ -64,6 +80,12 @@ class ShoppingActivity : AppCompatActivity(), KodeinAware {
                   }
               }).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        Toast.makeText(getApplicationContext(),"Aplikacja uruchomiła się!", Toast.LENGTH_LONG).show();
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

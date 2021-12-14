@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.shoppingapp">
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+
 
     <application
         android:exported="true"
@@ -21,6 +23,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".ui.MapsActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".ui.GalleryActivity"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".ui.MediaPlayer"
+            android:exported="true">
+        </activity>
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyDRxReCOgABHyeg2SIXSXxOkYm7CSGrNGc"/>
     </application>
 
 </manifest>

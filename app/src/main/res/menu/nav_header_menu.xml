@@ -8,4 +8,12 @@
         android:id="@+id/Mapy"
         android:title="Where sklepy"/>
 
+    <item
+        android:id="@+id/Gallery"
+        android:title="Galeria jajeczek"/>
+
+    <item
+        android:id="@+id/Player"
+        android:title="Music player"/>
+
 </menu>
